@@ -45,6 +45,7 @@ void loop()
   Serial.print(br, 1);
 
   if ( br <= maxbr) {
+<<<<<<< HEAD
     ledState = High;
     analogWrite(ledPin, br);
   }else{
@@ -53,4 +54,10 @@ void loop()
 
 
 
+=======
+
+    analogWrite(ledPin, br);
+  }
+
+>>>>>>> 6c87aee2bb0695ec033570c43d414c1993fed09e
 }
