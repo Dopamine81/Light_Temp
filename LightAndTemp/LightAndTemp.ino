@@ -2,9 +2,12 @@
 const int ledPin = LED_BUILTIN;
 
 DFRobot_SHT20 sht20(&Wire, SHT20_I2C_ADDR);
-unsigned long br=0;
+int br=0;
+int tmp = 0;
 const int maxbr = 255;
 const int minbr = 0;
+const int maxtmp = 48;
+const int mintmp = 28;
 
 
 void setup() 
@@ -27,8 +30,10 @@ void loop()
 
   float temp = sht20.readTemperature();
 
-  unsigned long Brightness = temp * 6;
-  br = Brightness;
+  tmp = temp - 28;
+  br = tmp * 12.75;
+  br = map(temp, 48, 28, 0, 255);
+
 
 
    
@@ -44,20 +49,7 @@ void loop()
   delay(1000);
   Serial.print(br, 1);
 
-  if ( br <= maxbr) {
-<<<<<<< HEAD
-    ledState = High;
-    analogWrite(ledPin, br);
-  }else{
-    ledState = LOW;
-  }
+  analogWrite(ledPin, br);
 
-
-
-=======
-
-    analogWrite(ledPin, br);
-  }
-
->>>>>>> 6c87aee2bb0695ec033570c43d414c1993fed09e
+  
 }
