@@ -1,3 +1,2 @@
 # Light_Temp
-Increase the light on LED by increasing temprature
-Hi
+This project is about how to increase or decrease the LED light by increasing or decreasing temprature..
